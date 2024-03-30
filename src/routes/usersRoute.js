@@ -59,7 +59,8 @@ usersRouter
   .get((req, res) => {
     const { userId } = req.params;
     const user = userData.find((user) => user.id === +userId);
-    if (user != -1 && Object.keys(user).length > 0) {
+    console.log(user);
+    if (user && Object.keys(user).length > 0) {
       res.json(user);
     } else {
       res.status(404).json(new ApiError('user not found', 404));
